@@ -15,7 +15,7 @@ const Routes = [
   {
     path: '/detail',
     exact: true,
-    layout: Detail,
+    layout: Layout,
     component: Detail,
   },
 ]

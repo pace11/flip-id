@@ -1,3 +1,5 @@
+import ComponentHome from './component-home'
+
 export default function Home() {
-  return <p>Page Home</p>
+  return <ComponentHome />
 }
