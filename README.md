@@ -2,7 +2,7 @@
 record transaction from flip.id
 
 ## Deploy
-- [x] Netlify
+- [x] Netlify -> https://musing-roentgen-5e5350.netlify.app/
 ## How to run
  - `git clone` this repository
  - `npm install` or `yarn` to install dependency `node_modules/`  
