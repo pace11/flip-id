@@ -20,10 +20,15 @@ const Container = styled(Link)`
 
 /**
  *
- * @param {String, any} props.children
  * @param {String} props.linkTo
+ * @param {Any} props.children
+ * @param {Any} props.otherProps
  * @returns <Comp />
  */
-export default function Button({ linkTo, children }) {
-  return <Container to={linkTo}>{children}</Container>
+export default function Button({ linkTo, children, ...otherProps }) {
+  return (
+    <Container to={linkTo} {...otherProps}>
+      {children}
+    </Container>
+  )
 }

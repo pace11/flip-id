@@ -11,13 +11,18 @@ const Container = styled.div`
 `
 
 const Row = styled.div`
-  width: 425px;
+  width: 480px;
   height: 100vh;
   @media (max-width: 425px) {
     width: 100%;
   }
 `
 
+/**
+ *
+ * @param {Any} props.children
+ * @returns <Comp />
+ */
 export default function Layout({ children }) {
   return (
     <Container>

@@ -10,3 +10,18 @@ export const currency = (number) => {
     minimumFractionDigits: 0,
   }).format(number)
 }
+
+/**
+ *
+ * @param {Object} param
+ * @returns
+ */
+export const mappingData = (param) => {
+  const tmp = []
+  if (param) {
+    Object.entries(param).forEach((item) => {
+      tmp.push(item[1])
+    })
+  }
+  return tmp
+}

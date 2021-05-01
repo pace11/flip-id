@@ -1,6 +1,10 @@
 import styled from 'styled-components'
 import Section from '../../components/section'
 import Card from '../../components/card'
+import Shimmer from '../../components/shimmer'
+import ErrorPage from './error-page'
+import ResultNotFound from './result-not-found'
+import SearchSorting from './search-sorting'
 
 const Description = styled.div`
   h2,
@@ -13,26 +17,45 @@ const Description = styled.div`
       font-weight: 700;
     }
   }
+  margin-bottom: 15px;
 `
 
 const ListTransaction = styled.div`
   width: 100%;
   display: grid;
   grid-template-columns: 1fr;
+  grid-auto-rows: minmax(min-content, max-content);
   grid-gap: 10px;
   margin: 20px 0;
-  height: calc(100vh - 210px);
+  height: calc(100vh - 280px);
   overflow-y: scroll;
 `
 
 /**
  *
- * @param {Object, Array} props.data
+ * @param {Object} props.data
+ * @param {Boolean} props.isSuccess
+ * @param {Boolean} props.isFetching
+ * @param {Boolean} props.isError
+ * @param {Function} props.onChangeInput
+ * @param {Function} props.selectValue
+ * @param {String} props.selectActive
  * @returns <Comp />
  */
-export default function ComponentHome({ data, isSuccess, isLoading }) {
+export default function ComponentHome({
+  data,
+  isSuccess,
+  isFetching,
+  isError,
+  onChangeInput,
+  selectValue,
+  selectActive,
+}) {
+  if (isError) {
+    return <ErrorPage />
+  }
   return (
-    <Section title="Daftar Transaksi">
+    <Section title="Daftar Transaksi" isFetching={isFetching}>
       <Description>
         <h2>Halo Kak!</h2>
         <p>
@@ -40,22 +63,30 @@ export default function ComponentHome({ data, isSuccess, isLoading }) {
           menggunakan Flip.
         </p>
       </Description>
+      <SearchSorting
+        onChangeInput={onChangeInput}
+        selectValue={selectValue}
+        selectActive={selectActive}
+      />
       <ListTransaction>
-        {isLoading && <p>Loading ...</p>}
-        {isSuccess &&
-          Object.entries(data)?.map((item, idx) => (
+        {isFetching && <Shimmer number={3} />}
+        {isSuccess && data.length > 0 ? (
+          data.map((item, idx) => (
             <Card
               key={String(idx)}
-              linkTo={`/detail/${item[1].id}`}
-              items={item[1]}
-              amount={item[1].amount}
-              status={item[1].status}
-              beneficiaryBank={item[1].beneficiary_bank}
-              beneficiaryName={item[1].beneficiary_name}
-              senderBank={item[1].sender_bank}
-              completedAt={item[1].completed_at}
+              linkTo={`/detail/${item.id}`}
+              items={item}
+              amount={item.amount}
+              status={item.status}
+              beneficiaryBank={item.beneficiary_bank}
+              beneficiaryName={item.beneficiary_name}
+              senderBank={item.sender_bank}
+              completedAt={item.completed_at}
             />
-          ))}
+          ))
+        ) : (
+          <ResultNotFound />
+        )}
       </ListTransaction>
     </Section>
   )

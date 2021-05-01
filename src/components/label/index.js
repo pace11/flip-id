@@ -21,7 +21,7 @@ const StatusColor = (status) => {
     },
     success: {
       style: {
-        background: '#57b587',
+        background: theme.colors.green,
         border: `1px solid ${theme.colors.green}`,
         color: theme.colors.white,
       },

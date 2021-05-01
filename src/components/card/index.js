@@ -44,7 +44,9 @@ const StatusColor = (status) => {
 }
 
 /**
- *
+ * @param {String} props.linkTo
+ * @param {Object} props.items
+ * @param {Number} props.amount
  * @param {String} props.beneficiaryBank
  * @param {String} props.beneficiaryName
  * @param {String} props.senderBank
