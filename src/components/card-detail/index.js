@@ -4,6 +4,7 @@ import theme from '../../common/theme'
 
 const Container = styled.div`
   width: 100%;
+  box-sizing: border-box;
   height: auto;
   background: #fff;
   border-radius: 4px;

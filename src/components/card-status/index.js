@@ -4,6 +4,7 @@ import theme from '../../common/theme'
 
 const Container = styled.div`
   width: 100%;
+  box-sizing: border-box;
   display: flex;
   justify-content: space-between;
   align-items: center;

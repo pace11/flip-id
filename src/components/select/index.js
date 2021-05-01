@@ -18,7 +18,7 @@ const BoxValue = styled.div`
     color: ${theme.colors.orange};
   }
   cursor: pointer;
-  padding: 7px;
+  padding: 8px;
 `
 
 const Text = styled.p`
@@ -74,7 +74,7 @@ export default function Select({ active, value, items }) {
     <Outclick onOutsideClick={() => setShow(false)}>
       <Container>
         <BoxValue onClick={() => setShow((show) => !show)}>
-          <Text margin="0" fontSize="15px">
+          <Text margin="0" fontSize="13px">
             {active
               ? items.filter((item) => item.id === active)[0].text
               : 'URUTKAN'}{' '}

@@ -74,14 +74,19 @@ export default function Card({
     >
       <Row>
         <Col>
-          <Text margin="0" textTransform="uppercase" fontWeight="700">
+          <Text
+            margin="0"
+            fontSize="15px"
+            textTransform="uppercase"
+            fontWeight="700"
+          >
             {beneficiaryBank} <i className="fas fa-long-arrow-alt-right"></i>{' '}
             {senderBank}
           </Text>
-          <Text margin="0" textTransform="uppercase">
+          <Text margin="0" fontSize="15px" textTransform="uppercase">
             {beneficiaryName}
           </Text>
-          <Text margin="0" textTransform="capitalize">
+          <Text margin="0" fontSize="15px" textTransform="capitalize">
             {currency(amount)} <i className="fas fa-circle"></i>{' '}
             {new Date(completedAt).toDateString()}
           </Text>

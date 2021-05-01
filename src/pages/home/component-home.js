@@ -5,6 +5,7 @@ import Shimmer from '../../components/shimmer'
 import ErrorPage from './error-page'
 import ResultNotFound from './result-not-found'
 import SearchSorting from './search-sorting'
+import { totalAmount, currency } from '../../helpers'
 
 const Description = styled.div`
   h2,
@@ -12,6 +13,7 @@ const Description = styled.div`
     margin: 0;
   }
   p {
+    font-size: 16px;
     span {
       color: rgb(253, 101, 66);
       font-weight: 700;
@@ -59,8 +61,9 @@ export default function ComponentHome({
       <Description>
         <h2>Halo Kak!</h2>
         <p>
-          Kamu telah melakukan transaksi sebesar <span>Rp5.000.000</span> sejak
-          menggunakan Flip.
+          Kamu telah melakukan transaksi sebesar{' '}
+          <span>{currency(totalAmount(data && data))}</span> sejak menggunakan
+          Flip.
         </p>
       </Description>
       <SearchSorting
