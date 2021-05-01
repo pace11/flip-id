@@ -76,6 +76,7 @@ export default function Home() {
       data={
         keyword.length > 0 || select ? dataFilter : data && mappingData(data)
       }
+      countAmount={data && mappingData(data)}
       isSuccess={isSuccess}
       isFetching={isFetching}
       isError={isError}

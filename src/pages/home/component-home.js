@@ -46,6 +46,7 @@ const ListTransaction = styled.div`
  */
 export default function ComponentHome({
   data,
+  countAmount,
   isSuccess,
   isFetching,
   isError,
@@ -62,7 +63,7 @@ export default function ComponentHome({
         <h2>Halo Kak!</h2>
         <p>
           Kamu telah melakukan transaksi sebesar{' '}
-          <span>{currency(totalAmount(data && data))}</span> sejak menggunakan
+          <span>{currency(totalAmount(countAmount))}</span> sejak menggunakan
           Flip.
         </p>
       </Description>
