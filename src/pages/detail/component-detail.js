@@ -3,19 +3,22 @@ import CardStatus from '../../components/card-status'
 import CardDetail from '../../components/card-detail'
 import Button from '../../components/button'
 
-export default function ComponentDetail() {
+export default function ComponentDetail({ data }) {
   return (
     <Section title="Detail Transaksi">
-      <CardStatus idTransaction="FT23967" status="SUCCESS" />
+      <CardStatus
+        idTransaction={data && data.id}
+        status={data && data.status}
+      />
       <CardDetail
-        amount={1751366}
-        uniqueCode={246}
-        senderBank="bni"
-        accountNumber="5637896854"
-        beneficiaryName="Shanice Harwood"
-        beneficiaryBank="mandiri"
-        remark="sample remark"
-        createdAt="2021-05-01 15:16:09"
+        amount={data && data.amount}
+        uniqueCode={data && data.unique_code}
+        senderBank={data && data.sender_bank}
+        accountNumber={data && data.account_number}
+        beneficiaryName={data && data.beneficiary_name}
+        beneficiaryBank={data && data.beneficiary_bank}
+        remark={data && data.remark}
+        createdAt={data && data.created_at}
       />
       <Button linkTo={`/`}>Kembali</Button>
     </Section>

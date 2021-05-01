@@ -16,13 +16,21 @@ const Description = styled.div`
 `
 
 const ListTransaction = styled.div`
+  width: 100%;
   display: grid;
   grid-template-columns: 1fr;
   grid-gap: 10px;
   margin: 20px 0;
+  height: calc(100vh - 210px);
+  overflow-y: scroll;
 `
 
-export default function ComponentHome() {
+/**
+ *
+ * @param {Object, Array} props.data
+ * @returns <Comp />
+ */
+export default function ComponentHome({ data, isSuccess, isLoading }) {
   return (
     <Section title="Daftar Transaksi">
       <Description>
@@ -33,22 +41,21 @@ export default function ComponentHome() {
         </p>
       </Description>
       <ListTransaction>
-        <Card
-          linkTo="/detail"
-          status="SUCCESS"
-          beneficiaryBank="bca"
-          beneficiaryName="Michael"
-          senderBank="bni"
-          completedAt="2021-04-30 23:43:20"
-        />
-        <Card
-          linkTo="/detail"
-          status="PENDING"
-          beneficiaryBank="muamalat"
-          beneficiaryName="Tom Cruise"
-          senderBank="bni"
-          completedAt="2021-04-30 23:43:20"
-        />
+        {isLoading && <p>Loading ...</p>}
+        {isSuccess &&
+          Object.entries(data)?.map((item, idx) => (
+            <Card
+              key={String(idx)}
+              linkTo={`/detail/${item[1].id}`}
+              items={item[1]}
+              amount={item[1].amount}
+              status={item[1].status}
+              beneficiaryBank={item[1].beneficiary_bank}
+              beneficiaryName={item[1].beneficiary_name}
+              senderBank={item[1].sender_bank}
+              completedAt={item[1].completed_at}
+            />
+          ))}
       </ListTransaction>
     </Section>
   )

@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import theme from '../../common/theme'
 import Label from '../label'
+import { currency } from '../../helpers'
 
 const Container = styled(Link)`
   width: 100%;
@@ -12,11 +13,11 @@ const Container = styled(Link)`
   padding: 10px;
   text-decoration: none;
   color: ${theme.colors.grey};
+  box-sizing: border-box;
 `
 
 const Row = styled.div`
   width: 100%;
-  box-sizing: border-box;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -53,6 +54,8 @@ const StatusColor = (status) => {
  */
 export default function Card({
   linkTo,
+  items,
+  amount,
   beneficiaryBank,
   beneficiaryName,
   senderBank,
@@ -60,7 +63,13 @@ export default function Card({
   status,
 }) {
   return (
-    <Container status={status} to={linkTo}>
+    <Container
+      status={status}
+      to={{
+        pathname: linkTo,
+        state: items,
+      }}
+    >
       <Row>
         <Col>
           <Text margin="0" textTransform="uppercase" fontWeight="700">
@@ -71,7 +80,7 @@ export default function Card({
             {beneficiaryName}
           </Text>
           <Text margin="0" textTransform="capitalize">
-            Rp1.000.000 <i className="fas fa-circle"></i>{' '}
+            {currency(amount)} <i className="fas fa-circle"></i>{' '}
             {new Date(completedAt).toDateString()}
           </Text>
         </Col>
