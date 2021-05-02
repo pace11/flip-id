@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import theme from '../../common/theme'
 import Label from '../label'
-import { currency } from '../../helpers'
+import { currency, dateIndonesia } from '../../helpers'
 
 const Container = styled(Link)`
   width: 100%;
@@ -88,7 +88,7 @@ export default function Card({
           </Text>
           <Text margin="0" fontSize="15px" textTransform="capitalize">
             {currency(amount)} <i className="fas fa-circle"></i>{' '}
-            {new Date(completedAt).toDateString()}
+            {dateIndonesia(completedAt)}
           </Text>
         </Col>
         <Col>

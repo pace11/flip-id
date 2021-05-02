@@ -27,7 +27,7 @@ const Text = styled.p`
 
 const ListOption = styled.ul`
   position: absolute;
-  width: auto;
+  width: 100%;
   height: ${(props) => (props.show ? 'auto' : '0')};
   top: ${(props) => (props.show ? '19px' : '0px')};
   visibility: ${(props) => (props.show ? 'visible' : 'hidden')};
@@ -36,7 +36,7 @@ const ListOption = styled.ul`
   list-style-type: none;
   z-index: 999;
   background: ${theme.colors.white};
-  border: 2px solid ${theme.colors.grey3};
+  border: 1px solid ${theme.colors.grey3};
   border-radius: 4px;
   padding: 0;
   text-align: left;
@@ -71,8 +71,8 @@ export default function Select({ active, value, items }) {
   }
 
   return (
-    <Outclick onOutsideClick={() => setShow(false)}>
-      <Container>
+    <Container>
+      <Outclick onOutsideClick={() => setShow(false)}>
         <BoxValue onClick={() => setShow((show) => !show)}>
           <Text margin="0" fontSize="13px">
             {active
@@ -92,7 +92,7 @@ export default function Select({ active, value, items }) {
             </Option>
           ))}
         </ListOption>
-      </Container>
-    </Outclick>
+      </Outclick>
+    </Container>
   )
 }

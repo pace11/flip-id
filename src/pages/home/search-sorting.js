@@ -9,11 +9,11 @@ const Container = styled.div`
   box-sizing: border-box;
   display: grid;
   grid-template-columns: 65% 35%;
-  border: 2px solid ${theme.colors.grey3};
+  border: 1px solid ${theme.colors.grey3};
   background: ${theme.colors.white};
   border-radius: 4px;
   div:last-child {
-    border-left: 2px solid ${theme.colors.grey3};
+    border-left: 1px solid ${theme.colors.grey3};
   }
 `
 

@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { currency } from '../../helpers'
+import { currency, dateIndonesia } from '../../helpers'
 import theme from '../../common/theme'
 
 const Container = styled.div`
@@ -156,7 +156,7 @@ export default function CardDetail({
               fontSize="15px"
               color={theme.colors.grey2}
             >
-              {new Date(createdAt).toDateString()}
+              {dateIndonesia(createdAt)}
             </Text>
           </div>
         </Col>
