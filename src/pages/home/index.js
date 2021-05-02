@@ -49,10 +49,10 @@ export default function Home() {
         'z-a': [...dataFilter].sort((a, b) =>
           b.beneficiary_name.localeCompare(a.beneficiary_name),
         ),
-        'new-date': [...dataFilter].sort((a, b) =>
+        'old-date': [...dataFilter].sort((a, b) =>
           a.created_at.localeCompare(b.created_at),
         ),
-        'old-date': [...dataFilter].sort((a, b) =>
+        'new-date': [...dataFilter].sort((a, b) =>
           b.created_at.localeCompare(a.created_at),
         ),
       }

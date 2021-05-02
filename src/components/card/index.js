@@ -50,7 +50,7 @@ const StatusColor = (status) => {
  * @param {String} props.beneficiaryBank
  * @param {String} props.beneficiaryName
  * @param {String} props.senderBank
- * @param {String} props.completedAt
+ * @param {String} props.createdAt
  * @param {String} props.status
  * @returns <Comp />
  */
@@ -61,7 +61,7 @@ export default function Card({
   beneficiaryBank,
   beneficiaryName,
   senderBank,
-  completedAt,
+  createdAt,
   status,
 }) {
   return (
@@ -80,15 +80,15 @@ export default function Card({
             textTransform="uppercase"
             fontWeight="700"
           >
-            {beneficiaryBank} <i className="fas fa-long-arrow-alt-right"></i>{' '}
-            {senderBank}
+            {senderBank} <i className="fas fa-long-arrow-alt-right"></i>{' '}
+            {beneficiaryBank}
           </Text>
           <Text margin="0" fontSize="15px" textTransform="uppercase">
             {beneficiaryName}
           </Text>
           <Text margin="0" fontSize="15px" textTransform="capitalize">
             {currency(amount)} <i className="fas fa-circle"></i>{' '}
-            {dateIndonesia(completedAt)}
+            {dateIndonesia(createdAt)}
           </Text>
         </Col>
         <Col>

@@ -85,7 +85,7 @@ export default function ComponentHome({
               beneficiaryBank={item.beneficiary_bank}
               beneficiaryName={item.beneficiary_name}
               senderBank={item.sender_bank}
-              completedAt={item.completed_at}
+              createdAt={item.created_at}
             />
           ))
         ) : (
